@@ -1,0 +1,1 @@
+The Internet is littered with the failed wrecks and dead-end threads resulting from problems encountered problems setting up GPRS using the SM5100B GSM shield for Arduino. I have this working for HTTP POST and GET requests, and here it is.
