@@ -12,9 +12,9 @@ This code sends the following commands to the module (bracketed values you need 
     [packet]                            (send the packet, followed by ctrl+z, i.e. 0x1A)
     AT+SDATAREAD=1\r\n                  (if module gives us "+STCPD:1" it means we've received data - we can read it with this command)
     
-A big problem a lot of people were having was with the AT+SSTRSEND. That command terminates on line breaks, but the packet needs line breaks. Instead, we use AT+SDATATSEND, which terminates with the ctrl+z character (0x1A, or 26). The only annoyance with AT+SDATATSEND is that we need to tell the module the length of the packet we're sending. Also, unlike all the other commands which end in \r\n, for whatever reason it seems we have to end AT+SDATATSEND in only \r.
+A big problem a lot of people were having was with AT+SSTRSEND. That command terminates on line breaks, but the packet needs line breaks. Instead, we use AT+SDATATSEND, which terminates with the ctrl+z character (0x1A, or 26). The only annoyance with AT+SDATATSEND is that we need to tell the module the length of the packet we're sending. Also, unlike all the other commands which end in \r\n, for whatever reason it seems we have to end AT+SDATATSEND in only \r.
 
-The packet this file sends is as follows:
+The packet this program sends is as follows:
 
     GET /m/testpage.php?data=testing HTTP/1.1
     Host: avantari.co.uk
@@ -30,7 +30,7 @@ PS: You might not actually be able to read data received from the server from th
 
 $ whoami
 
-Toby
-tobyfox@gmail.com
-http://github.com/tobek
-http://toby.is
+-   Toby
+-   tobyfox@gmail.com
+-   http://github.com/tobek
+-   http://toby.is
