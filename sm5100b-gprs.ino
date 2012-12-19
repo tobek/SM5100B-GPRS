@@ -14,7 +14,7 @@ const String apn = "rcomnet"; // access-point name for GPRS
 const String ip = "174.120.246.220"; // IP address of server we're connecting to
 const String host = "avantari.co.uk"; // required in HTTP 1.1 - what's the name of the host at this IP address?
 const String request = "GET /m/testpage.php?data=testing HTTP/1.1";
-const String useragent = "Mozilla/5.0" // for our purposes the user agent doesn't matter - if I understand correctly it's helpful to use something generic the server will recognize
+const String useragent = "Mozilla/5.0"; // for our purposes the user agent doesn't matter - if I understand correctly it's helpful to use something generic the server will recognize
 
 /* this will send the following packet:
  * 
@@ -22,7 +22,7 @@ const String useragent = "Mozilla/5.0" // for our purposes the user agent doesn'
  * Host: avantari.co.uk
  * User-Agent: Mozilla/5.0
  * 
- * this is the equivalent of visiting http://avantari.co.uk/m/post.php?data=testing
+ * this is the equivalent of visiting http://avantari.co.uk/m/testpage.php?data=testing
 */
 
 void setup()
