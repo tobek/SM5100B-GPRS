@@ -99,7 +99,7 @@ void loop()
   // break when the server tells us it acknowledged data
   while (1) {
     cell.println("AT+SDATASTATUS=1"); // we'll get back SOCKSTATUS and then OK
-    String s = getMessage();
+    String s = getMessage(); // we want s to contain the SOCKSTATUS message
     if (s == "+STCPD:1") // this means server sent data. cool, but we want to see SOCKSTATUS, so let's get next message
       s = getMessage();
     if (s == "+STCPC:1") // this means socket closed. cool, but we want to see SOCKSTATUS, so let's get next message
@@ -146,7 +146,7 @@ void loop()
 // ====== HELPER FUNCTIONS ====== //
 
 // keep reading the serial messages we receive from the module
-// loop forever until we get a nonzero string ending in \r\n - return that.
+// loop forever until we get a nonzero string ending in \r\n - print and return that.
 // TODO: implement a timeout that returns 0?
 String getMessage() {
   String s="";
@@ -172,7 +172,6 @@ void waitFor(String s) {
   String message=getMessage();
   if (message != s) {
     Serial.println("Wait, that's not what we were expecting. We wanted \""+s+"\"");
-    Serial.println("Looping forever on module output...");
     cellOutputForever();
   }
   delay(100); // wait for a tiny bit before sending the next command
@@ -205,7 +204,7 @@ void waitFor(char c) {
 // if something goes wrong, abort and just display cell module output so we can see error messages
 // this will loop forever
 void cellOutputForever() {
-  Serial.println("Now displaying cell module output forever");
+  Serial.println("Looping forever displaying cell module output...");
   while(1) {
     if(cell.available()>0) {
       Serial.print((char)cell.read());
