@@ -87,7 +87,7 @@ void loop()
   
   Serial.println("Sending HTTP packet...");
   cell.print("AT+SDATATSEND=1,"+String(packetLength)+"\r");
-  waitFor('>'); // wait for GSM module to tell us it's ready to recieve the packet
+  waitFor('>'); // wait for GSM module to tell us it's ready to recieve the packet. NOTE: some have needed to remove this line
   cell.print(request+"\r\n"); // SIZE: 2
   cell.print("Host: "+host+"\r\n"); // SIZE: 8
   cell.print("User-Agent: "+useragent+"\r\n\r\n"); // SIZE: 16
